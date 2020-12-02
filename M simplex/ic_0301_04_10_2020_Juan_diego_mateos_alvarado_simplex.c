@@ -1,14 +1,22 @@
 #include "ic_0301_04_10_2020_Juan_diego_mateos_alvarado_simplex.h"
+/**
+@brief declaramos un valor de tipo entero
+@return nos retorna un void
+*/
 
-
-int main(void)                                                                         //J0K�R (DIEGO)
+int main(void)                                                                         //J0K€R (DIEGO)
 			{
 			
-				int rest, var, ni ;
-				int i,j, k, columna, renglon, count, cuenta;
+				int rest, var, ni ;//@param decalramos valores eneros con los nombres rest, var, ni
+				int i,j, k, columna, renglon, count, cuenta;//@param los valores declarados son paa guardar datos que se ingresan del teclado
 				double maximo = 0, menor, aux, mult, temp;
-				rest = leeDatos(&var);
-			
+				rest = leeDatos(&var);//@param declaramos las restricciones sean iguales a leer los datos por la variable
+			/**
+			@brief aqui creamos la tabla simplex con los valores obtenidos del teclado 
+			@param utilisamos for para un ciclo y los if para las condiciones 
+			return los valores que se ingresen entraran en cada ciclo si no cumplen con lo que pide el ciclo salen 
+			y entran al siguiente asta que nos retorne el valor que deseamos
+			*/
 			//Creatabla inicial simplex:
 			for(i=0;i<rest;i++)
 			for(j=0; j<rest; j++)
@@ -35,12 +43,12 @@ int main(void)                                                                  
 			printf("\n");
 			}
 			
-			//Encontrar la variable de decision que entra a la base
-			//y la de holgura que saldra de la base
+			/**@brief Encontrar la variable de decision que entra a la base y la de holgura que saldra de la base
+			*/
 			
 			do
 			{
-				//Encontrar la variable de decision que entrara a la base
+				//@param Encontrar la variable de decision que entrara a la base
 				maximo = abs(restricciones[rest][0]);
 				columna = 0;
 				for(j=0; j<=rest+var; j++)
@@ -73,13 +81,13 @@ int main(void)                                                                  
 			}
 			}
 			if(count == rest) {
-				printf("Soluci� no acotada");
+				printf("Soluciï¿½ no acotada");
 				exit(1);
 			}
 			printf("\nPivote: %.2lf, renglon %d columna %d",restricciones[renglon][columna], renglon, columna);
 			
-			//Encontrar los
-			// coeficientes de la nueva tabla
+			// @param Encontrar los coeficientes de la nueva tabla
+			
 			aux = restricciones[renglon][columna];
 			for(j=0; j<=(rest+var); j++)
 			restricciones[renglon][j] = restricciones[renglon][j] / aux;
